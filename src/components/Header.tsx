@@ -5,10 +5,18 @@ import { Menu, X, Workflow } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from './ui/button';
 
-export function Header({ onGetStarted }: { onGetStarted?: () => void }) {
+export function Header({ onGetStarted, onNavigateToPricing }: { onGetStarted?: () => void; onNavigateToPricing?: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menuItems = ['Home', 'Features', 'Pricing', 'Blog', 'About'];
+
+  const handleMenuClick = (item: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (item === 'Pricing' && onNavigateToPricing) {
+      e.preventDefault();
+      onNavigateToPricing();
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <motion.header 
@@ -31,9 +39,10 @@ export function Header({ onGetStarted }: { onGetStarted?: () => void }) {
             {menuItems.map((item) => (
               <a
                 key={item}
-                href={item === 'Features' ? '#why-canvasflow' : `#${item.toLowerCase()}`}
+                href={item === 'Features' ? '#why-canvasflow' : item === 'Pricing' ? '/pricing' : `#${item.toLowerCase()}`}
                 className="text-[#6B7280] hover:text-[#3B82F6] transition-colors"
                 style={{ fontSize: '16px' }}
+                onClick={(e) => handleMenuClick(item, e)}
               >
                 {item}
               </a>
@@ -76,9 +85,9 @@ export function Header({ onGetStarted }: { onGetStarted?: () => void }) {
               {menuItems.map((item) => (
                 <a
                   key={item}
-                  href={item === 'Features' ? '#why-canvasflow' : `#${item.toLowerCase()}`}
+                  href={item === 'Features' ? '#why-canvasflow' : item === 'Pricing' ? '#pricing' : `#${item.toLowerCase()}`}
                   className="text-[#6B7280] hover:text-[#3B82F6] py-2"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleMenuClick(item, e)}
                 >
                   {item}
                 </a>

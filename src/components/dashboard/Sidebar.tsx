@@ -11,7 +11,8 @@ import {
   PlayCircle,
   Workflow,
   User,
-  X
+  X,
+  Home
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -94,6 +95,15 @@ export function Sidebar({ onNavigate, currentPage = 'Dashboard', isOpen = true, 
 
         {/* Navigation */}
         <nav className="flex-1 p-4 space-y-1">
+          <a
+            href="/"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[#6B7280] hover:bg-gray-100 transition-all"
+          >
+            <Home className="w-5 h-5" />
+            <span style={{ fontSize: '14px', fontWeight: 500 }}>
+              Home
+            </span>
+          </a>
           {menuItems.map((item) => (
             <button
               key={item.label}

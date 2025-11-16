@@ -569,6 +569,10 @@
     margin-top: calc(var(--spacing) * 6);
   }
 
+  .mt-24 {
+    margin-top: calc(var(--spacing) * 24);
+  }
+
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
   }
@@ -1253,10 +1257,6 @@
 
   .text-left {
     text-align: left;
-  }
-
-  .text-right {
-    text-align: right;
   }
 
   .align-middle {

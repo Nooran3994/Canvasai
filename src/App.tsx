@@ -12,9 +12,10 @@ import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { DashboardPage } from './components/DashboardPage';
 import { ProfilePage } from './components/ProfilePage';
+import PricingPage from './pages/PricingPage';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'landing' | 'dashboard' | 'profile'>('landing');
+  const [currentPage, setCurrentPage] = useState<'landing' | 'dashboard' | 'profile' | 'pricing'>('landing');
 
   const handleNavigate = (page: string) => {
     if (page === 'Settings') {
@@ -32,6 +33,14 @@ export default function App() {
     setCurrentPage('dashboard');
   };
 
+  const handleNavigateToPricing = () => {
+    setCurrentPage('pricing');
+  };
+
+  const handleBackToHome = () => {
+    setCurrentPage('landing');
+  };
+
   if (currentPage === 'profile') {
     return <ProfilePage onBack={handleBackToDashboard} onNavigate={handleNavigate} />;
   }
@@ -40,9 +49,13 @@ export default function App() {
     return <DashboardPage onNavigate={handleNavigate} />;
   }
 
+  if (currentPage === 'pricing') {
+    return <PricingPage onBackToHome={handleBackToHome} />;
+  }
+
   return (
     <div className="min-h-screen bg-white">
-      <Header onGetStarted={handleGetStarted} />
+      <Header onGetStarted={handleGetStarted} onNavigateToPricing={handleNavigateToPricing} />
       <main>
         <Hero onGetStarted={handleGetStarted} />
         <ValueProposition />

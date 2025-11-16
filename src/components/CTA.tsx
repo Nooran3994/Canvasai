@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
 
-export function CTA() {
+export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
   return (
     <section className="py-24 bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -24,6 +24,7 @@ export function CTA() {
           <Button 
             size="lg" 
             className="bg-white text-[#3B82F6] hover:bg-gray-100 gap-2"
+            onClick={onGetStarted}
           >
             Sign Up Free Today
             <ArrowRight className="w-5 h-5" />

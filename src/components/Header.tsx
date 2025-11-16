@@ -5,7 +5,7 @@ import { Menu, X, Workflow } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from './ui/button';
 
-export function Header() {
+export function Header({ onGetStarted }: { onGetStarted?: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menuItems = ['Home', 'Features', 'Pricing', 'Blog', 'About'];
@@ -45,7 +45,10 @@ export function Header() {
             <Button variant="ghost" className="text-[#3B82F6]">
               Login
             </Button>
-            <Button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-[37px]">
+            <Button 
+              className="bg-[#3B82F6] hover:bg-[#2563EB] text-white"
+              onClick={onGetStarted}
+            >
               Sign Up Free
             </Button>
           </div>
@@ -84,7 +87,13 @@ export function Header() {
                 <Button variant="ghost" className="text-[#3B82F6] w-full">
                   Login
                 </Button>
-                <Button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white w-full">
+                <Button 
+                  className="bg-[#3B82F6] hover:bg-[#2563EB] text-white w-full"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onGetStarted?.();
+                  }}
+                >
                   Sign Up Free
                 </Button>
               </div>

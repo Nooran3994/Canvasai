@@ -59,7 +59,7 @@ const plans = [
   }
 ];
 
-export function Pricing() {
+export function Pricing({ onGetStarted }: { onGetStarted?: () => void }) {
   return (
     <section className="py-24 bg-[#F9FAFB]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,6 +141,7 @@ export function Pricing() {
                     ? 'bg-[#3B82F6] hover:bg-[#2563EB] text-white' 
                     : 'bg-white border border-[#3B82F6] text-[#3B82F6] hover:bg-[#3B82F6] hover:text-white'
                 }`}
+                onClick={onGetStarted}
               >
                 {plan.cta}
               </Button>

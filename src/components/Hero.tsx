@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-export function Hero() {
+export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,6 +28,7 @@ export function Hero() {
               <Button 
                 size="lg" 
                 className="bg-white text-[#3B82F6] hover:bg-gray-100 gap-2"
+                onClick={onGetStarted}
               >
                 Start Building Your Startup
                 <ArrowRight className="w-5 h-5" />

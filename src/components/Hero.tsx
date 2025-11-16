@@ -4,7 +4,6 @@ import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import heroImage from 'figma:asset/79098a4dadb59ee957bd90976b8af1653bb51722.png';
 
 export function Hero() {
   return (
@@ -45,7 +44,7 @@ export function Hero() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <ImageWithFallback
-                src={heroImage}
+                src="https://i.imgur.com/mUlyWxZ.png"
                 alt="AI-powered canvas integration visualization"
                 className="w-full h-auto"
               />

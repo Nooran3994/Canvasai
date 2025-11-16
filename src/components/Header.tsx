@@ -31,7 +31,7 @@ export function Header() {
             {menuItems.map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={item === 'Features' ? '#why-canvasflow' : `#${item.toLowerCase()}`}
                 className="text-[#6B7280] hover:text-[#3B82F6] transition-colors"
                 style={{ fontSize: '16px' }}
               >
@@ -45,7 +45,7 @@ export function Header() {
             <Button variant="ghost" className="text-[#3B82F6]">
               Login
             </Button>
-            <Button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white">
+            <Button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-[37px]">
               Sign Up Free
             </Button>
           </div>

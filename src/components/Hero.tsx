@@ -19,7 +19,7 @@ export function Hero() {
             className="text-center lg:text-left"
           >
             <h1 className="text-white mb-6" style={{ fontSize: '48px', lineHeight: '1.1' }}>
-              From Idea to Scale with AI-Powered Precision
+              From Idea to a scalable business
             </h1>
             <p className="text-blue-100 mb-8" style={{ fontSize: '18px', lineHeight: '1.6' }}>
               Unify your Lean Canvas, Business Model, Validation, OKRs, and Unit Economics in one intelligent platform. 
@@ -32,14 +32,6 @@ export function Hero() {
               >
                 Start Building Your Startup
                 <ArrowRight className="w-5 h-5" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white/10 gap-2"
-              >
-                <Play className="w-5 h-5" />
-                Watch 2-Min Demo 🎬
               </Button>
             </div>
           </motion.div>

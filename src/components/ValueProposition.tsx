@@ -32,7 +32,7 @@ const features = [
 
 export function ValueProposition() {
   return (
-    <section className="py-24 bg-[#F9FAFB]">
+    <section id="why-canvasflow" className="py-24 bg-[#F9FAFB]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -76,7 +76,7 @@ export function Header({ onGetStarted }: { onGetStarted?: () => void }) {
               {menuItems.map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={item === 'Features' ? '#why-canvasflow' : `#${item.toLowerCase()}`}
                   className="text-[#6B7280] hover:text-[#3B82F6] py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >

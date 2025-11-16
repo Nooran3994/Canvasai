@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
-import { User, Mail, Building2, MapPin, Globe, Save, ArrowLeft } from 'lucide-react';
+import { User, Mail, Building2, MapPin, Globe, Save, ArrowLeft, Menu } from 'lucide-react';
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
@@ -15,6 +15,7 @@ interface ProfilePageProps {
 }
 
 export function ProfilePage({ onBack, onNavigate }: ProfilePageProps) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [formData, setFormData] = useState({
     fullName: 'Demo User',
     email: 'demo@canvasflow.ai',
@@ -37,13 +38,25 @@ export function ProfilePage({ onBack, onNavigate }: ProfilePageProps) {
   return (
     <div className="flex min-h-screen bg-[#F9FAFB]">
       {/* Sidebar */}
-      <Sidebar onNavigate={onNavigate} currentPage="Settings" />
+      <Sidebar 
+        onNavigate={onNavigate} 
+        currentPage="Settings"
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col w-full lg:w-auto">
         {/* Top Bar */}
-        <div className="bg-white border-b border-gray-200 px-8 py-6">
+        <div className="bg-white border-b border-gray-200 px-4 sm:px-8 py-6">
           <div className="flex items-center gap-4">
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden w-10 h-10 rounded-lg hover:bg-gray-100 flex items-center justify-center text-[#6B7280]"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
             <button
               onClick={onBack}
               className="w-10 h-10 rounded-lg hover:bg-gray-100 flex items-center justify-center text-[#6B7280]"
@@ -51,10 +64,10 @@ export function ProfilePage({ onBack, onNavigate }: ProfilePageProps) {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <h1 className="text-[#1F2937] mb-1" style={{ fontSize: '36px', fontWeight: 700 }}>
+              <h1 className="text-[#1F2937] mb-1" style={{ fontSize: '28px sm:36px', fontWeight: 700 }}>
                 Profile Settings
               </h1>
-              <p className="text-[#6B7280]" style={{ fontSize: '16px' }}>
+              <p className="text-[#6B7280]" style={{ fontSize: '14px sm:16px' }}>
                 Manage your account and startup information
               </p>
             </div>
@@ -62,7 +75,7 @@ export function ProfilePage({ onBack, onNavigate }: ProfilePageProps) {
         </div>
 
         {/* Profile Content */}
-        <main className="flex-1 p-8">
+        <main className="flex-1 p-4 sm:p-8">
           <div className="max-w-4xl mx-auto">
             {/* Profile Header Card */}
             <div className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm mb-6">

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Sidebar } from './dashboard/Sidebar';
 import { DashboardTopBar } from './dashboard/DashboardTopBar';
 import { StatsCard } from './dashboard/StatsCard';
@@ -51,18 +52,25 @@ interface DashboardPageProps {
 }
 
 export function DashboardPage({ onNavigate }: DashboardPageProps) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen bg-[#F9FAFB]">
       {/* Sidebar */}
-      <Sidebar onNavigate={onNavigate} currentPage="Dashboard" />
+      <Sidebar 
+        onNavigate={onNavigate} 
+        currentPage="Dashboard"
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col w-full lg:w-auto">
         {/* Top Bar */}
-        <DashboardTopBar />
+        <DashboardTopBar onMenuClick={() => setSidebarOpen(true)} />
 
         {/* Dashboard Content */}
-        <main className="flex-1 p-8">
+        <main className="flex-1 p-4 sm:p-8">
           {/* Demo Banner */}
           <DemoBanner />
 

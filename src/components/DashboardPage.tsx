@@ -46,11 +46,15 @@ const stats = [
   }
 ];
 
-export function DashboardPage() {
+interface DashboardPageProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function DashboardPage({ onNavigate }: DashboardPageProps) {
   return (
     <div className="flex min-h-screen bg-[#F9FAFB]">
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar onNavigate={onNavigate} currentPage="Dashboard" />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">

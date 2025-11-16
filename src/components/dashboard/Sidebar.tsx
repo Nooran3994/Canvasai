@@ -9,7 +9,8 @@ import {
   BarChart3, 
   Settings,
   PlayCircle,
-  Workflow
+  Workflow,
+  User
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -23,19 +24,36 @@ const menuItems = [
   { icon: Settings, label: 'Settings', active: false },
 ];
 
-export function Sidebar() {
-  const [activeItem, setActiveItem] = useState('Dashboard');
+interface SidebarProps {
+  onNavigate?: (page: string) => void;
+  currentPage?: string;
+}
+
+export function Sidebar({ onNavigate, currentPage = 'Dashboard' }: SidebarProps) {
+  const [activeItem, setActiveItem] = useState(currentPage);
+
+  const handleNavigation = (label: string) => {
+    setActiveItem(label);
+    if (onNavigate) {
+      onNavigate(label);
+    }
+  };
 
   return (
     <aside className="w-64 bg-white border-r border-gray-200 h-screen sticky top-0 flex flex-col">
       {/* Logo */}
       <div className="p-6 border-b border-gray-200">
-        <div className="flex items-center gap-2">
-          <Workflow className="w-8 h-8 text-[#3B82F6]" />
+        <button 
+          onClick={() => handleNavigation('Settings')}
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity w-full"
+        >
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center">
+            <User className="w-5 h-5 text-white" />
+          </div>
           <span className="text-[#1F2937]" style={{ fontSize: '18px', fontWeight: 700 }}>
             CanvasFlow AI
           </span>
-        </div>
+        </button>
       </div>
 
       {/* Navigation */}
@@ -43,7 +61,7 @@ export function Sidebar() {
         {menuItems.map((item) => (
           <button
             key={item.label}
-            onClick={() => setActiveItem(item.label)}
+            onClick={() => handleNavigation(item.label)}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
               activeItem === item.label
                 ? 'bg-[#3B82F6] text-white'

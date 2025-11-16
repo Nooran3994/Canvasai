@@ -11,25 +11,46 @@ import { Pricing } from './components/Pricing';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { DashboardPage } from './components/DashboardPage';
+import { ProfilePage } from './components/ProfilePage';
 
 export default function App() {
-  const [showDashboard, setShowDashboard] = useState(false);
+  const [currentPage, setCurrentPage] = useState<'landing' | 'dashboard' | 'profile'>('landing');
 
-  if (showDashboard) {
-    return <DashboardPage />;
+  const handleNavigate = (page: string) => {
+    if (page === 'Settings') {
+      setCurrentPage('profile');
+    } else if (page === 'Dashboard') {
+      setCurrentPage('dashboard');
+    }
+  };
+
+  const handleGetStarted = () => {
+    setCurrentPage('dashboard');
+  };
+
+  const handleBackToDashboard = () => {
+    setCurrentPage('dashboard');
+  };
+
+  if (currentPage === 'profile') {
+    return <ProfilePage onBack={handleBackToDashboard} onNavigate={handleNavigate} />;
+  }
+
+  if (currentPage === 'dashboard') {
+    return <DashboardPage onNavigate={handleNavigate} />;
   }
 
   return (
     <div className="min-h-screen bg-white">
-      <Header onGetStarted={() => setShowDashboard(true)} />
+      <Header onGetStarted={handleGetStarted} />
       <main>
-        <Hero onGetStarted={() => setShowDashboard(true)} />
+        <Hero onGetStarted={handleGetStarted} />
         <ValueProposition />
         <Features />
         <AIInsights />
         <Testimonials />
-        <Pricing onGetStarted={() => setShowDashboard(true)} />
-        <CTA onGetStarted={() => setShowDashboard(true)} />
+        <Pricing onGetStarted={handleGetStarted} />
+        <CTA onGetStarted={handleGetStarted} />
       </main>
       <Footer />
     </div>

@@ -9,37 +9,42 @@ const canvasFeatures = [
     icon: LayoutGrid,
     title: 'Lean Canvas',
     description: 'Map problem-solution fit with AI suggestions.',
-    color: '#3B82F6'
+    color: '#3B82F6',
+    image: 'https://i.imgur.com/kz47zaJ.png'
   },
   {
     icon: CheckSquare,
     title: 'Validation Canvas',
     description: 'Test assumptions and analyze results intelligently.',
-    color: '#10B981'
+    color: '#10B981',
+    image: 'https://i.imgur.com/YoLj13I.png'
   },
   {
     icon: Briefcase,
     title: 'Business Model Canvas',
     description: 'Design scalable strategies with revenue simulations.',
-    color: '#8B5CF6'
+    color: '#8B5CF6',
+    image: 'https://i.imgur.com/dl9bRi7.png'
   },
   {
     icon: Target,
     title: 'OKR Framework',
     description: 'Set goals and track progress with predictive insights.',
-    color: '#3B82F6'
+    color: '#3B82F6',
+    image: 'https://i.imgur.com/Owuj3Z8.png'
   },
   {
     icon: DollarSign,
     title: 'Unit Economics Dashboard',
     description: 'Monitor financial health with forecasts and benchmarks.',
-    color: '#10B981'
+    color: '#10B981',
+    image: 'https://i.imgur.com/cdEDktE.png'
   }
 ];
 
 export function Features() {
   return (
-    <section className="py-24 bg-white">
+    <section id="features" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,7 +74,7 @@ export function Features() {
               <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
                 <div className="absolute inset-0 opacity-50">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBpbnRlcmZhY2UlMjBtb2NrdXB8ZW58MXx8fHwxNzYzMjIxMjk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                    src={feature.image}
                     alt={`${feature.title} interface`}
                     className="w-full h-full object-cover"
                   />

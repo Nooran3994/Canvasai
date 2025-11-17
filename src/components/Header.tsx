@@ -39,7 +39,12 @@ export function Header({ onGetStarted, onNavigateToPricing }: { onGetStarted?: (
             {menuItems.map((item) => (
               <a
                 key={item}
-                href={item === 'Features' ? '#why-canvasflow' : item === 'Pricing' ? '/pricing' : `#${item.toLowerCase()}`}
+                href={
+                  item === 'Features' ? '#why-canvasflow' : 
+                  item === 'Pricing' ? '/pricing' : 
+                  item === 'Blog' ? '#features' :
+                  `#${item.toLowerCase()}`
+                }
                 className="text-[#6B7280] hover:text-[#3B82F6] transition-colors"
                 style={{ fontSize: '16px' }}
                 onClick={(e) => handleMenuClick(item, e)}
@@ -55,7 +60,7 @@ export function Header({ onGetStarted, onNavigateToPricing }: { onGetStarted?: (
               Login
             </Button>
             <Button 
-              className="bg-[#3B82F6] hover:bg-[#2563EB] text-white"
+              className="bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-[66px]"
               onClick={onGetStarted}
             >
               Sign Up Free

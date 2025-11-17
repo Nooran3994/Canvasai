@@ -27,7 +27,7 @@ export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
                 size="lg" 
-                className="bg-white text-[#3B82F6] hover:bg-gray-100 gap-2"
+                className="bg-white text-[#3B82F6] hover:bg-gray-100 gap-2 rounded-[40px]"
                 onClick={onGetStarted}
               >
                 Start Building Your Startup

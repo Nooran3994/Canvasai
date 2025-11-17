@@ -12,13 +12,14 @@ import {
   Workflow,
   User,
   X,
-  Home
+  Home,
+  LogOut
 } from 'lucide-react';
 import { useState } from 'react';
 
 const menuItems = [
   { icon: LayoutDashboard, label: 'Dashboard', active: true },
-  { icon: FolderKanban, label: 'Projects', active: false },
+  { icon: FolderKanban, label: 'Templates', active: false },
   { icon: LayoutGrid, label: 'Canvases', active: false },
   { icon: Brain, label: 'AI Insights', active: false },
   { icon: FlaskConical, label: 'Experiments', active: false },
@@ -122,12 +123,12 @@ export function Sidebar({ onNavigate, currentPage = 'Dashboard', isOpen = true, 
           ))}
         </nav>
 
-        {/* Demo Mode */}
+        {/* Log Out */}
         <div className="p-4 border-t border-gray-200">
-          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-[#8B5CF6]/10 text-[#8B5CF6] hover:bg-[#8B5CF6]/20 transition-all">
-            <PlayCircle className="w-5 h-5" />
+          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition-all">
+            <LogOut className="w-5 h-5" />
             <span style={{ fontSize: '14px', fontWeight: 500 }}>
-              Demo Mode
+              Log Out
             </span>
           </button>
         </div>

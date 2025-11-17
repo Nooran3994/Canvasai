@@ -14,7 +14,7 @@ import { FolderKanban, LayoutGrid, TrendingUp, Clock } from 'lucide-react';
 
 const stats = [
   {
-    title: 'Total Projects',
+    title: 'Templates Created',
     value: '12',
     trend: '+12%',
     trendPositive: true,

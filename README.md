@@ -1,7 +1,7 @@
 
-  # canvas.ai
+  # CanvasAI
 
-  This is a code bundle for canvas.ai. The original project is available at https://www.figma.com/design/emgWMjtn3MrUKdUzwwjuvV/canvas.ai.
+  This is a code bundle for CanvasAI. The original project is available at https://www.figma.com/design/emgWMjtn3MrUKdUzwwjuvV/CanvasAI.
 
   ## Running the code
 
